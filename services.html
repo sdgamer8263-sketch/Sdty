@@ -312,7 +312,7 @@
 
           let features = item.features.map(f => `<li class="flex items-center gap-3"><i data-lucide="check-circle" class="h-4 w-4 text-primary shrink-0"></i><span class="text-sm text-slate-300">${f.replace(/\*\*(.*?)\*\*/g,"<b>$1</b>")}</span></li>`).join('');
 
-          let btnClass = (item.topTier || item.popular) ? "bg-primary text-slate-900 hover:bg-primary-hover shadow-[0_0_10px_rgba(6,182,212,0.3)]" : "bg-transparent text-primary-light border border-primary hover:bg-primary/20";
+          let btnClass = "bg-transparent text-primary-light border border-primary hover:bg-primary/20";
           
           html += `
             <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border ${extraClass} flex flex-col justify-between transition-all duration-300 relative overflow-hidden group hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
