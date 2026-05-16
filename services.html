@@ -97,7 +97,7 @@
       <div class="flex flex-col items-start gap-2">
         <label for="currencySelector" class="text-xs font-mono text-slate-500 uppercase tracking-widest">Select Currency</label>
         <div class="relative">
-          <select id="currencySelector" onchange="renderAll()" class="appearance-none bg-dark-card border border-dark-border text-white text-sm rounded px-4 py-2 pr-8 focus:outline-none focus:border-primary-light transition-colors">
+          <select id="currencySelector" onchange="renderAll()" class="appearance-none bg-dark-card border border-dark-border text-white text-sm rounded px-4 py-2 pr-8 focus:outline-none focus:border-primary-light transition-colors backdrop-blur-md">
             <option value="INR" selected>₹ INR (Indian Rupee)</option>
             <option value="USD">$ USD (US Dollar)</option>
             <option value="EUR">€ EUR (Euro)</option>
@@ -111,21 +111,20 @@
     </div>
 
     <!-- Tabs -->
-    <div class="flex flex-wrap items-center gap-2 mb-10 border border-dark-border p-2 rounded-lg bg-dark-card/50" id="tabs-container"></div>
+    <div class="flex flex-wrap items-center gap-2 mb-10 border border-dark-border p-2 rounded-lg bg-dark-card/50 backdrop-blur-md" id="tabs-container"></div>
 
     <!-- Active Panes -->
     <div id="panes-container"></div>
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-dark-border py-8 px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center gap-4">
+  <footer class="border-t border-dark-border py-8 px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center gap-4 bg-dark-bg/50 backdrop-blur-sm mt-8">
     <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
       <div class="w-6 h-6 bg-primary rounded bg-opacity-20 border border-primary/50 flex items-center justify-center text-xs text-primary">C</div>
       <span class="text-slate-300">Civizsicloud</span>
     </a>
     <div class="flex items-center gap-6 text-sm text-slate-500">
       <a href="https://discord.gg/NrFzwAdPct" target="_blank" class="hover:text-primary-light transition-colors">Discord</a>
-      <a href="https://github.com/civizsicloud" target="_blank" class="hover:text-primary-light transition-colors">GitHub</a>
     </div>
     <p class="text-slate-400 font-bold text-sm mt-4">
       &copy; <script>document.write(new Date().getFullYear())</script> Developed by SDGAMER. All rights reserved.
@@ -161,12 +160,12 @@
         id: 'vps', icon: 'cpu', title: 'VPS Hosting',
         heading: 'PREMIUM VPS PLANS', desc: 'Full root access. Dedicated resources. Global network.',
         items: [
-          { name: 'Starter Plan', price: 139, features: ['1 vCore', '2 GB RAM', '50 GB Storage'] },
-          { name: 'Basic Plan', price: 229, features: ['2 vCore', '4 GB RAM', '80 GB Storage'] },
-          { name: 'Pro Plan', price: 289, popular: true, features: ['4 vCore', '8 GB RAM', '100 GB Storage'] },
-          { name: 'Advanced Plan', price: 409, features: ['8 vCore', '16 GB RAM', '300 GB Storage'] },
-          { name: 'Ultra Plan', price: 649, features: ['16 vCore', '32 GB RAM', '800 GB Storage'] },
-          { name: 'God Tier Plan', price: 969, features: ['16 vCore', '64 GB RAM', '1 TB Storage'] }
+          { name: 'Starter Plan', price: 139, features: ['1 vCore', '2 GB RAM', '50 GB Storage', '✅ HVM Virtualization', '🌐 Dedicated public IPv4', '⚡ 99.9% Uptime', '🔑 Full Root Access', '🚀 Instant Setup'] },
+          { name: 'Basic Plan', price: 229, features: ['2 vCore', '4 GB RAM', '80 GB Storage', '✅ HVM Virtualization', '🌐 Dedicated public IPv4', '⚡ 99.9% Uptime', '🔑 Full Root Access', '🚀 Instant Setup'] },
+          { name: 'Pro Plan', price: 289, popular: true, features: ['4 vCore', '8 GB RAM', '100 GB Storage', '✅ HVM Virtualization', '🌐 Dedicated public IPv4', '⚡ 99.9% Uptime', '🔑 Full Root Access', '🚀 Instant Setup'] },
+          { name: 'Advanced Plan', price: 409, features: ['8 vCore', '16 GB RAM', '300 GB Storage', '✅ HVM Virtualization', '🌐 Dedicated public IPv4', '⚡ 99.9% Uptime', '🔑 Full Root Access', '🚀 Instant Setup'] },
+          { name: 'Ultra Plan', price: 649, features: ['16 vCore', '32 GB RAM', '800 GB Storage', '✅ HVM Virtualization', '🌐 Dedicated public IPv4', '⚡ 99.9% Uptime', '🔑 Full Root Access', '🚀 Instant Setup'] },
+          { name: 'God Tier Plan', price: 969, features: ['16 vCore', '64 GB RAM', '1 TB Storage', '✅ HVM Virtualization', '🌐 Dedicated public IPv4', '⚡ 99.9% Uptime', '🔑 Full Root Access', '🚀 Instant Setup'] }
         ]
       },
       {
@@ -235,7 +234,32 @@
       const activeData = data.find(t => t.id === activeTab);
       const panesContainer = document.getElementById('panes-container');
       
-      let html = `<div class="mb-8 max-w-2xl">
+      let html = '';
+
+      if (activeData.id === 'minecraft' || activeData.id === 'vps') {
+        html += `
+        <!-- Trial Banner -->
+        <div class="mb-8 p-6 rounded-xl bg-primary/10 border border-primary/30 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-4 relative overflow-hidden shadow-lg">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent pointer-events-none"></div>
+          <div class="relative z-10 flex items-center gap-4">
+            <div class="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+              <i data-lucide="clock" class="h-6 w-6 text-primary-light"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-white mb-1">24-Hour Trial <span class="ml-2 text-[10px] font-mono bg-primary/20 text-primary-light px-2 py-0.5 rounded border border-primary/30 align-middle">` + fm(50) + ` Fee</span></h3>
+              <p class="text-sm text-slate-300">Not sure yet? Test our high-performance nodes with full access for a small setup fee.</p>
+            </div>
+          </div>
+          <div class="relative z-10 shrink-0">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" class="px-6 py-3 bg-primary/20 hover:bg-primary/30 text-primary-light border border-primary/50 hover:border-primary font-bold text-xs uppercase tracking-widest rounded transition-colors whitespace-nowrap flex items-center gap-2">
+              Claim Trial <i data-lucide="arrow-right" class="h-4 w-4"></i>
+            </a>
+          </div>
+        </div>
+        `;
+      }
+
+      html += `<div class="mb-8 max-w-2xl">
         <h2 class="text-2xl text-white font-semibold flex items-center gap-2 mb-2">
           <i data-lucide="${activeData.icon}" class="text-primary h-6 w-6"></i>
           <span>${activeData.heading}</span>

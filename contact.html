@@ -76,130 +76,50 @@
   </nav>
 
   <main class="flex-1 w-full px-4 py-16 sm:px-10 lg:px-10 max-w-7xl mx-auto">
-    <div class="grid lg:grid-cols-2 gap-16 items-start">
-      <!-- Contact Info -->
-      <div class="flex flex-col gap-6">
-        <div class="flex items-center gap-3">
-          <span class="px-2 py-0.5 bg-dark-border/50 border border-dark-border text-[10px] text-primary-light font-mono uppercase tracking-tighter">Comms Link</span>
-          <div class="h-[1px] w-24 bg-dark-border"></div>
+    <div class="max-w-3xl mx-auto flex flex-col items-center text-center">
+      <div class="flex flex-col gap-6 items-center">
+        <div class="flex items-center justify-center gap-3 w-full">
+          <div class="h-[1px] w-12 sm:w-24 bg-dark-border"></div>
+          <span class="px-2 py-0.5 bg-dark-border/50 border border-dark-border text-[10px] text-primary-light font-mono uppercase tracking-tighter shadow-[0_0_10px_rgba(6,182,212,0.1)]">Comms Link</span>
+          <div class="h-[1px] w-12 sm:w-24 bg-dark-border"></div>
         </div>
         <h1 class="text-4xl md:text-5xl font-light leading-none tracking-tight mb-2">System Contact.</h1>
-        <p class="text-lg text-slate-400 mb-6">
-          Commence data transfer. We respond to all inquiries within standard operational cycles.
+        <p class="text-lg text-slate-400 mb-8 max-w-xl">
+          Commence data transfer. The primary mode of communication with our team is via our secure Discord server.
         </p>
 
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div class="bg-dark-card border border-dark-border p-6 rounded-lg flex flex-col gap-4 hover:border-primary-dark transition-colors">
-            <i data-lucide="mail" class="h-6 w-6 text-primary"></i>
-            <div>
-              <span class="text-[10px] font-mono text-slate-500 uppercase block mb-1">Email Protocol</span>
-              <a href="mailto:hello@civizsicloud.com" class="text-sm font-semibold text-white hover:text-primary transition-colors">
-                hello@civizsicloud.com
-              </a>
+        <div class="w-full max-w-lg mx-auto">
+          <!-- Glass UI Discord Card -->
+          <div class="bg-dark-card/40 backdrop-blur-xl border border-dark-border/80 p-8 md:p-12 rounded-2xl flex flex-col items-center gap-6 shadow-[0_0_40px_rgba(88,101,242,0.15)] hover:shadow-[0_0_60px_rgba(88,101,242,0.25)] hover:border-[#5865F2]/50 transition-all duration-500 relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#5865F2]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <div class="h-20 w-20 rounded-full bg-[#5865F2]/20 flex items-center justify-center mb-2 relative z-10">
+              <div class="absolute inset-0 rounded-full bg-[#5865F2]/20 animate-ping opacity-20"></div>
+              <i data-lucide="message-square" class="h-10 w-10 text-[#5865F2]"></i>
             </div>
-          </div>
-          
-          <div class="bg-dark-card border border-dark-border p-6 rounded-lg flex flex-col gap-4 hover:border-primary-dark transition-colors">
-            <i data-lucide="map-pin" class="h-6 w-6 text-primary"></i>
-            <div>
-              <span class="text-[10px] font-mono text-slate-500 uppercase block mb-1">Physical Node</span>
-              <p class="text-sm font-semibold text-white">
-                123 Tech Avenue, SF
-              </p>
+            
+            <div class="text-center relative z-10">
+              <h3 class="text-3xl font-bold text-white mb-3">Join our Discord</h3>
+              <p class="text-sm text-slate-300 mb-8">Get 24/7 support, stay updated with our latest node deployments, and connect with the community.</p>
             </div>
-          </div>
-
-          <div class="bg-dark-card border border-dark-border p-6 rounded-lg flex flex-col gap-4 hover:border-primary-dark transition-colors">
-            <i data-lucide="message-square" class="h-6 w-6 text-primary"></i>
-            <div>
-              <span class="text-[10px] font-mono text-slate-500 uppercase block mb-1">Discord Comms</span>
-              <a href="https://discord.gg/NrFzwAdPct" target="_blank" class="text-sm font-semibold text-white hover:text-primary transition-colors">
-                Join Server
-              </a>
-            </div>
-          </div>
-
-          <div class="bg-dark-card border border-dark-border p-6 rounded-lg flex flex-col gap-4 hover:border-primary-dark transition-colors">
-            <i data-lucide="github" class="h-6 w-6 text-primary"></i>
-            <div>
-              <span class="text-[10px] font-mono text-slate-500 uppercase block mb-1">Code Repo</span>
-              <a href="https://github.com/civizsicloud" target="_blank" class="text-sm font-semibold text-white hover:text-primary transition-colors">
-                github.com/civizsicloud
-              </a>
-            </div>
+            
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" class="relative z-10 w-full md:w-auto md:px-12 py-4 bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold rounded-lg uppercase tracking-widest text-xs transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(88,101,242,0.4)] hover:shadow-[0_0_30px_rgba(88,101,242,0.6)] hover:-translate-y-1">
+              Connect to Server <i data-lucide="external-link" class="h-4 w-4"></i>
+            </a>
           </div>
         </div>
-      </div>
-
-      <!-- Contact Form -->
-      <div class="bg-dark-card rounded-lg p-8 border border-dark-border">
-        <h2 class="text-xl font-semibold mb-6">Transmit Message</h2>
-        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Transmission initialized. (Mock form submission)');">
-          <div class="space-y-1">
-            <label for="name" class="text-[10px] font-mono uppercase tracking-widest text-slate-500">Name</label>
-            <input 
-              type="text" 
-              id="name" 
-              required
-              class="w-full bg-dark-bg border border-dark-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-primary transition-colors"
-              placeholder="Ident designation"
-            />
-          </div>
-
-          <div class="space-y-1">
-            <label for="email" class="text-[10px] font-mono uppercase tracking-widest text-slate-500">Email Address</label>
-            <input 
-              type="email" 
-              id="email" 
-              required
-              class="w-full bg-dark-bg border border-dark-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-primary transition-colors"
-              placeholder="Comm link address"
-            />
-          </div>
-
-          <div class="space-y-1">
-            <label for="subject" class="text-[10px] font-mono uppercase tracking-widest text-slate-500">Subject</label>
-            <input 
-              type="text" 
-              id="subject" 
-              required
-              class="w-full bg-dark-bg border border-dark-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-primary transition-colors"
-              placeholder="Transmission classification"
-            />
-          </div>
-
-          <div class="space-y-1 mb-4">
-            <label for="message" class="text-[10px] font-mono uppercase tracking-widest text-slate-500">Message Payload</label>
-            <textarea 
-              id="message" 
-              required 
-              rows="4"
-              class="w-full bg-dark-bg border border-dark-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-primary transition-colors resize-none"
-              placeholder="Enter payload here..."
-            ></textarea>
-          </div>
-
-          <button 
-            type="submit"
-            class="w-full mt-4 bg-primary hover:bg-primary-hover text-slate-900 font-bold py-3 px-6 rounded uppercase tracking-widest text-xs transition-colors flex items-center justify-center gap-2"
-          >
-            Initialize Transfer
-            <i data-lucide="send" class="h-4 w-4"></i>
-          </button>
-        </form>
       </div>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-dark-border py-8 px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center gap-4">
+  <footer class="border-t border-dark-border py-8 px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center gap-4 bg-dark-bg/50 backdrop-blur-md mt-auto">
     <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
       <div class="w-6 h-6 bg-primary rounded bg-opacity-20 border border-primary/50 flex items-center justify-center text-xs text-primary">C</div>
       <span class="text-slate-300">Civizsicloud</span>
     </a>
     <div class="flex items-center gap-6 text-sm text-slate-500">
       <a href="https://discord.gg/NrFzwAdPct" target="_blank" class="hover:text-primary-light transition-colors">Discord</a>
-      <a href="https://github.com/civizsicloud" target="_blank" class="hover:text-primary-light transition-colors">GitHub</a>
     </div>
     <p class="text-slate-400 font-bold text-sm mt-4">
       &copy; <script>document.write(new Date().getFullYear())</script> Developed by SDGAMER. All rights reserved.
