@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Civizsicloud | Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            'dark-bg': '#0f172a',
+            'dark-card': 'rgba(15, 23, 42, 0.5)',
+            'dark-border': '#1e293b',
+            primary: '#06b6d4',
+            'primary-hover': '#0891b2',
+            'primary-light': '#22d3ee',
+            'primary-dark': '#164e63',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="text-slate-200 font-sans antialiased flex flex-col min-h-screen selection:bg-primary/30 selection:text-white">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 border-b border-dark-border bg-dark-bg/80 backdrop-blur-md">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex-shrink-0">
+          <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2 underline underline-offset-4 decoration-primary">
+            <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center font-bold text-slate-900">C</div>
+            <span>Civizsicloud</span>
+          </a>
+        </div>
+        
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-center space-x-8">
+            <a href="index.html" class="text-slate-300 hover:text-white hover:border-b-2 hover:border-dark-border border-b-2 border-transparent px-1 py-2 text-sm font-medium transition-colors">Home</a>
+            <a href="about.html" class="text-slate-300 hover:text-white hover:border-b-2 hover:border-dark-border border-b-2 border-transparent px-1 py-2 text-sm font-medium transition-colors">About Us</a>
+            <a href="services.html" class="text-white border-b-2 border-primary px-1 py-2 text-sm font-medium transition-colors">Services</a>
+            <a href="contact.html" class="text-slate-300 hover:text-white hover:border-b-2 hover:border-dark-border border-b-2 border-transparent px-1 py-2 text-sm font-medium transition-colors">Contact</a>
+          </div>
+        </div>
+        
+        <div class="hidden md:flex items-center">
+          <a href="contact.html" class="bg-primary-hover hover:bg-primary text-slate-900 text-xs font-bold px-4 py-2 rounded uppercase tracking-widest transition-colors flex items-center">
+            Deploy Now <i data-lucide="chevron-right" class="ml-1 h-4 w-4"></i>
+          </a>
+        </div>
+        
+        <div class="md:hidden flex items-center">
+          <button id="mobileMenuBtn" class="text-slate-300 hover:text-white p-2">
+            <i data-lucide="menu" class="h-6 w-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-dark-border bg-dark-bg/95 backdrop-blur-md">
+      <div class="space-y-1 px-4 pb-4 pt-2">
+        <a href="index.html" class="text-slate-300 hover:bg-dark-border hover:text-white block rounded-md px-3 py-2 text-base font-medium">Home</a>
+        <a href="about.html" class="text-slate-300 hover:bg-dark-border hover:text-white block rounded-md px-3 py-2 text-base font-medium">About Us</a>
+        <a href="services.html" class="bg-primary/10 text-primary block rounded-md px-3 py-2 text-base font-medium">Services</a>
+        <a href="contact.html" class="text-slate-300 hover:bg-dark-border hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1 w-full px-4 py-16 sm:px-10 lg:px-10 max-w-7xl mx-auto">
+    <div class="max-w-3xl mb-12 flex flex-col">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-2 py-0.5 bg-dark-border border border-dark-border text-[10px] text-primary-light font-mono uppercase tracking-tighter">Pricing & Services</span>
+        <div class="h-[1px] flex-1 max-w-[100px] bg-dark-border"></div>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-light tracking-tight mb-4">Select your power.</h1>
+      <p class="text-lg text-slate-400">
+        Scale your infrastructure with our high-frequency instances. Choose the tier that matches your operations.
+      </p>
+    </div>
+
+    <!-- Alert Box -->
+    <div class="mb-16 bg-primary/10 border border-primary/50 rounded-lg p-4 flex items-center justify-between shadow-[0_0_20px_rgba(6,182,212,0.15)] relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-1 h-full bg-primary shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>
+      <div class="flex items-center gap-4 relative z-10">
+        <div class="h-10 w-10 rounded-full bg-dark-bg border border-primary/30 flex items-center justify-center shrink-0">
+          <i data-lucide="activity" class="h-5 w-5 text-primary-light"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-widest mb-1">Trial Access Enabled</h3>
+          <p class="text-primary-light text-sm">
+            Notice: Minecraft Server Trial is <strong class="text-white">₹50</strong> | VPS Trial is <strong class="text-white">₹30</strong>.
+          </p>
+        </div>
+      </div>
+      <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-2 px-4 py-2 bg-dark-bg border border-primary/30 text-primary-light text-xs font-bold uppercase rounded hover:bg-primary/20 transition-colors">
+        Claim Trial <i data-lucide="arrow-right" class="h-3 w-3"></i>
+      </a>
+    </div>
+
+    <!-- Section 1: Minecraft Plans -->
+    <section class="mb-24">
+      <div class="mb-8">
+        <h2 class="text-2xl font-light text-white flex items-center gap-3">
+          <i data-lucide="server" class="h-6 w-6 text-primary"></i>
+          Civizsicloud <span class="font-semibold text-primary">— PREMIUM MINECRAFT PLANS</span>
+        </h2>
+        <p class="text-slate-400 mt-2 font-mono text-sm uppercase tracking-wider">
+          High-frequency cores. NVMe speed. Built for serious performance.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        
+        <!-- Premium Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary-dark hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">Premium Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹160</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">4 vCore (AMD Epyc)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">8GB DDR5 RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">60GB NVMe SSD</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-2 mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-transparent text-primary-light border border-primary hover:bg-primary/20">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+            <a href="https://panel.civizsicloudhosting.indevs.in" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center bg-dark-bg/50 text-slate-400 border border-dark-border hover:border-primary-dark hover:text-white">
+              Panel
+            </a>
+          </div>
+        </div>
+
+        <!-- Business Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary-dark hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">Business Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹220</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">6 vCore (AMD Epyc)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">12GB DDR5 RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">80GB NVMe SSD</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-2 mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-transparent text-primary-light border border-primary hover:bg-primary/20">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+            <a href="https://panel.civizsicloudhosting.indevs.in" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center bg-dark-bg/50 text-slate-400 border border-dark-border hover:border-primary-dark hover:text-white">
+              Panel
+            </a>
+          </div>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary-dark hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">Enterprise Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹260</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">8 vCore (AMD Epyc)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">16GB DDR5 RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">100GB NVMe SSD</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-2 mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-transparent text-primary-light border border-primary hover:bg-primary/20">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+            <a href="https://panel.civizsicloudhosting.indevs.in" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center bg-dark-bg/50 text-slate-400 border border-dark-border hover:border-primary-dark hover:text-white">
+              Panel
+            </a>
+          </div>
+        </div>
+
+        <!-- Ultra Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary-dark hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">Ultra Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹320</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">12 vCore (AMD Epyc)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">24GB DDR5 RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">150GB NVMe SSD</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-2 mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-transparent text-primary-light border border-primary hover:bg-primary/20">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+            <a href="https://panel.civizsicloudhosting.indevs.in" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center bg-dark-bg/50 text-slate-400 border border-dark-border hover:border-primary-dark hover:text-white">
+              Panel
+            </a>
+          </div>
+        </div>
+
+        <!-- Proplus Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary-dark hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">Proplus Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹420</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">16 vCore (AMD Epyc)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">32GB DDR5 RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">200GB NVMe SSD</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-2 mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-transparent text-primary-light border border-primary hover:bg-primary/20">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+            <a href="https://panel.civizsicloudhosting.indevs.in" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center bg-dark-bg/50 text-slate-400 border border-dark-border hover:border-primary-dark hover:text-white">
+              Panel
+            </a>
+          </div>
+        </div>
+
+        <!-- Unlimited Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary-dark hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">Unlimited Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹600</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">Unlimited vCore (AMD Epyc)</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">64GB DDR5 RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">Unlimited NVMe SSD</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="check" class="h-4 w-4 text-green-500 shrink-0"></i>
+                <span class="text-sm text-green-400">Free Subdomain</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-2 mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-transparent text-primary-light border border-primary hover:bg-primary/20">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+            <a href="https://panel.civizsicloudhosting.indevs.in" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center bg-dark-bg/50 text-slate-400 border border-dark-border hover:border-primary-dark hover:text-white">
+              Panel
+            </a>
+          </div>
+        </div>
+
+        <!-- Infinite Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-primary shadow-[0_0_15px_rgba(6,182,212,0.2)] hover:border-primary-light hover:-translate-y-1 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="absolute top-0 right-0 bg-primary/20 text-primary-light text-[9px] font-bold uppercase tracking-widest px-3 py-1 border-b border-l border-primary/30">Top Tier</div>
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">Infinite Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹900</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">Unlimited vCore</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">Unlimited DDR5 RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">Unlimited NVMe SSD</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="check" class="h-4 w-4 text-green-500 shrink-0"></i>
+                <span class="text-sm text-green-400">Priority Support</span>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col gap-2 mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-primary-hover hover:bg-primary text-slate-900 shadow-[0_0_10px_rgba(6,182,212,0.3)]">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+            <a href="https://panel.civizsicloudhosting.indevs.in" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded text-[10px] font-bold uppercase tracking-widest transition-colors flex items-center justify-center bg-dark-bg/50 text-slate-400 border border-dark-border hover:border-primary-dark hover:text-white">
+              Panel
+            </a>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="mt-8 p-4 rounded bg-dark-card border border-dark-border flex items-center justify-center">
+        <p class="text-xs text-slate-400 font-mono uppercase tracking-widest text-center">
+          <strong class="text-primary-light">ALL MINECRAFT PLANS INCLUDE:</strong> Unlimited Player Slots, High-Frequency vCPU, NVMe SSD Storage, Intel / AMD Epyc Options.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 2: VPS Plans -->
+    <section>
+      <div class="mb-8">
+        <h2 class="text-2xl font-light text-white flex items-center gap-3">
+          <i data-lucide="cpu" class="h-6 w-6 text-primary"></i>
+          <span class="font-semibold text-primary">PREMIUM VPS PLANS</span>
+        </h2>
+        <p class="text-slate-400 mt-2 font-mono text-sm uppercase tracking-wider">
+          Full root access. Dedicated resources. Global network.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Starter Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary-dark hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">Starter Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹89</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">1 vCore</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">2 GB RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">50 GB Storage</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-transparent text-primary-light border border-primary hover:bg-primary/20">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Basic Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary-dark hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">Basic Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹179</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">2 vCore</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">4 GB RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">80 GB Storage</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-transparent text-primary-light border border-primary hover:bg-primary/20">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-primary shadow-[0_0_15px_rgba(6,182,212,0.2)] hover:border-primary-light hover:-translate-y-1 flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="absolute top-0 right-0 bg-primary/20 text-primary-light text-[9px] font-bold uppercase tracking-widest px-3 py-1 border-b border-l border-primary/30">Most Popular</div>
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">Pro Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹239</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">4 vCore</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">8 GB RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">100 GB Storage</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-primary-hover hover:bg-primary text-slate-900 shadow-[0_0_10px_rgba(6,182,212,0.3)]">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Advanced Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary-dark hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">Advanced Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹359</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">8 vCore</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">16 GB RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">300 GB Storage</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-transparent text-primary-light border border-primary hover:bg-primary/20">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Ultra Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary-dark hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">Ultra Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹599</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">16 vCore</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">32 GB RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">800 GB Storage</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-transparent text-primary-light border border-primary hover:bg-primary/20">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- God Tier Plan -->
+        <div class="p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary-dark hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden group">
+          <div class="flex flex-col">
+            <h3 class="text-lg font-semibold text-white mb-2">God Tier Plan</h3>
+            <div class="flex items-baseline gap-1 mb-6">
+              <span class="text-3xl font-light text-white">₹919</span>
+              <span class="text-xs text-slate-500 font-medium uppercase tracking-widest">/ mo</span>
+            </div>
+            <div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div>
+            <ul class="flex flex-col gap-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i data-lucide="cpu" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">16 vCore</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="hard-drive" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">64 GB RAM</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i data-lucide="server" class="h-4 w-4 text-slate-500 group-hover:text-primary transition-colors shrink-0"></i>
+                <span class="text-sm text-slate-300">1 TB Storage</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-auto">
+            <a href="https://discord.gg/NrFzwAdPct" target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-transparent text-primary-light border border-primary hover:bg-primary/20">
+              Buy Now <i data-lucide="external-link" class="h-3 w-3"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="mt-8 p-4 rounded bg-dark-card border border-dark-border flex items-center justify-center">
+        <p class="text-xs text-slate-400 font-mono uppercase tracking-widest text-center flex flex-col md:flex-row items-center gap-2">
+          <span class="flex items-center gap-2"><i data-lucide="shield" class="h-4 w-4 text-green-500"></i> <strong class="text-primary-light">ALL VPS PLANS INCLUDE:</strong></span>
+          <span>HVM Virtualization, Dedicated public IPv4, 99.9% Uptime, Full Root Access, Instant Setup.</span>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-dark-border py-8 px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center gap-4">
+    <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+      <div class="w-6 h-6 bg-primary rounded bg-opacity-20 border border-primary/50 flex items-center justify-center text-xs text-primary">C</div>
+      <span class="text-slate-300">Civizsicloud</span>
+    </a>
+    <div class="flex items-center gap-6 text-sm text-slate-500">
+      <a href="https://discord.gg/NrFzwAdPct" target="_blank" class="hover:text-primary-light transition-colors">Discord</a>
+      <a href="https://github.com/civizsicloud" target="_blank" class="hover:text-primary-light transition-colors">GitHub</a>
+    </div>
+    <p class="text-slate-400 font-bold text-sm mt-4">
+      &copy; <script>document.write(new Date().getFullYear())</script> Developed by SDGAMER. All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+      } else {
+        menu.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
