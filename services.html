@@ -165,7 +165,7 @@
           { name: 'Pro Plan', price: 289, popular: true, features: ['4 vCore', '8 GB RAM', '100 GB Storage', '✅ HVM Virtualization', '🌐 Dedicated public IPv4', '⚡ 99.9% Uptime', '🔑 Full Root Access', '🚀 Instant Setup'] },
           { name: 'Advanced Plan', price: 409, features: ['8 vCore', '16 GB RAM', '300 GB Storage', '✅ HVM Virtualization', '🌐 Dedicated public IPv4', '⚡ 99.9% Uptime', '🔑 Full Root Access', '🚀 Instant Setup'] },
           { name: 'Ultra Plan', price: 649, features: ['16 vCore', '32 GB RAM', '800 GB Storage', '✅ HVM Virtualization', '🌐 Dedicated public IPv4', '⚡ 99.9% Uptime', '🔑 Full Root Access', '🚀 Instant Setup'] },
-          { name: 'God Tier Plan', price: 969, features: ['16 vCore', '64 GB RAM', '1 TB Storage', '✅ HVM Virtualization', '🌐 Dedicated public IPv4', '⚡ 99.9% Uptime', '🔑 Full Root Access', '🚀 Instant Setup'] }
+          { name: 'God Tier Plan', price: 969, topTier: true, features: ['16 vCore', '64 GB RAM', '1 TB Storage', '✅ HVM Virtualization', '🌐 Dedicated public IPv4', '⚡ 99.9% Uptime', '🔑 Full Root Access', '🚀 Instant Setup'] }
         ]
       },
       {
@@ -347,5 +347,6 @@
 
     document.addEventListener('DOMContentLoaded', renderAll);
   </script>
+  <script src="snow.js"></script>
 </body>
 </html>
