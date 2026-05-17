@@ -28,16 +28,26 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="text-slate-200 font-sans antialiased flex flex-col min-h-screen selection:bg-primary/30 selection:text-white">
+<body class="text-slate-200 font-sans tracking-wide antialiased flex flex-col min-h-screen selection:bg-primary/30 selection:text-white">
 
   <!-- Navbar -->
   <nav class="sticky top-0 z-50 border-b border-dark-border bg-dark-bg/80 backdrop-blur-md">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
         <div class="flex-shrink-0">
-          <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2 underline underline-offset-4 decoration-primary">
-            <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center font-bold text-slate-900">C</div>
-            <span>Civizsicloud</span>
+          <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2 group underline underline-offset-4 decoration-primary">
+            <svg viewBox="0 0 24 24" class="h-8 w-auto filter drop-shadow-[0_0_8px_rgba(6,182,212,0.8)] group-hover:scale-110 transition-transform duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="logoGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0ea5e9" />
+                  <stop offset="100%" stop-color="#22d3ee" />
+                </linearGradient>
+              </defs>
+              <path d="M6.5 17.5H18c2.2 0 4-1.8 4-4s-1.8-4-4-4c-0.3-3.1-2.9-5.5-6-5.5c-2.6 0-4.8 1.6-5.6 3.9C3.1 8 0.5 10.4 0.5 13.5c0 2.2 1.8 4 4 4" stroke="url(#logoGlow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 10.5c-2-1-4-0.5-5 1.5c-1 2 0 4 2 4.5" stroke="url(#logoGlow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 14.5l-4.5-4.5" stroke="url(#logoGlow)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">Civizsicloud</span>
           </a>
         </div>
         
@@ -50,11 +60,7 @@
           </div>
         </div>
         
-        <div class="hidden md:flex items-center">
-          <a href="buy.html" class="bg-primary-hover hover:bg-primary text-slate-900 text-xs font-bold px-4 py-2 rounded uppercase tracking-widest transition-colors flex items-center">
-            Deploy Now <i data-lucide="chevron-right" class="ml-1 h-4 w-4"></i>
-          </a>
-        </div>
+        
         
         <div class="md:hidden flex items-center">
           <button id="mobileMenuBtn" class="text-slate-300 hover:text-white p-2">
@@ -217,9 +223,13 @@
 
   <!-- Footer -->
   <footer class="border-t border-dark-border py-8 px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center gap-4 bg-dark-bg/50 backdrop-blur-md mt-auto">
-    <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-      <div class="w-6 h-6 bg-primary rounded bg-opacity-20 border border-primary/50 flex items-center justify-center text-xs text-primary">C</div>
-      <span class="text-slate-300">Civizsicloud</span>
+    <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2 group">
+      <svg viewBox="0 0 24 24" class="h-6 w-auto filter drop-shadow-[0_0_5px_rgba(6,182,212,0.6)] group-hover:scale-105 transition-transform" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.5 17.5H18c2.2 0 4-1.8 4-4s-1.8-4-4-4c-0.3-3.1-2.9-5.5-6-5.5c-2.6 0-4.8 1.6-5.6 3.9C3.1 8 0.5 10.4 0.5 13.5c0 2.2 1.8 4 4 4" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M14 10.5c-2-1-4-0.5-5 1.5c-1 2 0 4 2 4.5" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 14.5l-4.5-4.5" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="text-slate-300 group-hover:text-white transition-colors">Civizsicloud</span>
     </a>
     <div class="flex items-center gap-6 text-sm text-slate-500">
       <a href="https://discord.gg/NrFzwAdPct" target="_blank" class="hover:text-primary-light transition-colors">Discord</a>
@@ -243,6 +253,8 @@
       }
     });
   </script>
-  <script src="snow.js"></script>
+  <script src="meteor.js"></script>
+  
+<script src="auth.js"></script>
 </body>
 </html>

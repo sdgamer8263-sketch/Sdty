@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Civizsicloud | Purchase</title>
+  <title>Civizsicloud | Register</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -19,7 +19,6 @@
             primary: '#06b6d4',
             'primary-hover': '#0891b2',
             'primary-light': '#22d3ee',
-            'primary-dark': '#164e63',
           }
         }
       }
@@ -30,12 +29,11 @@
 </head>
 <body class="text-slate-200 font-sans tracking-wide antialiased flex flex-col min-h-screen selection:bg-primary/30 selection:text-white relative bg-[#0f172a]">
 
-  <!-- Navbar -->
   <nav class="sticky top-0 z-50 border-b border-dark-border bg-dark-bg/80 backdrop-blur-md">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
         <div class="flex-shrink-0">
-          <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2 group">
+          <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2 group underline underline-offset-4 decoration-primary">
             <svg viewBox="0 0 24 24" class="h-8 w-auto filter drop-shadow-[0_0_8px_rgba(6,182,212,0.8)] group-hover:scale-110 transition-transform duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="logoGlow" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -70,7 +68,6 @@
       </div>
     </div>
     
-    <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden md:hidden border-t border-dark-border bg-dark-bg/95 backdrop-blur-md">
       <div class="space-y-1 px-4 pb-4 pt-2">
         <a href="index.html" class="text-slate-300 hover:bg-dark-border hover:text-white block rounded-md px-3 py-2 text-base font-medium">Home</a>
@@ -82,29 +79,43 @@
   </nav>
 
   <main class="flex-1 w-full px-4 py-16 sm:px-10 lg:px-10 max-w-7xl mx-auto flex items-center justify-center">
-    <div class="max-w-xl w-full">
-      <div class="bg-dark-card/40 backdrop-blur-xl border border-dark-border/80 p-8 md:p-12 rounded-2xl flex flex-col items-center gap-6 shadow-[0_0_40px_rgba(6,182,212,0.15)] hover:shadow-[0_0_60px_rgba(6,182,212,0.25)] hover:border-primary/50 transition-all duration-500 relative overflow-hidden group text-center">
-        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div class="w-full max-w-md">
+      <div class="bg-dark-card/40 backdrop-blur-xl border border-dark-border/80 p-8 rounded-2xl shadow-[0_0_30px_rgba(6,182,212,0.1)]">
+        <h2 class="text-3xl font-bold text-white mb-2 text-center">Create Account</h2>
+        <p class="text-slate-400 text-sm mb-8 text-center">Join Civizsicloud and deploy instantly</p>
         
-        <div class="h-20 w-20 rounded-full bg-primary/20 flex items-center justify-center mb-2 relative z-10">
-          <div class="absolute inset-0 rounded-full bg-primary/20 animate-ping opacity-20"></div>
-          <i data-lucide="shopping-cart" class="h-10 w-10 text-primary"></i>
+        <form id="registerForm" class="space-y-5">
+          <div id="errorMsg" class="hidden bg-red-500/20 border border-red-500/50 text-red-400 p-3 rounded text-sm text-center"></div>
+          <div id="successMsg" class="hidden bg-green-500/20 border border-green-500/50 text-green-400 p-3 rounded text-sm text-center">Account created! Redirecting...</div>
+          
+          <div class="space-y-1">
+            <label for="name" class="text-xs font-mono uppercase tracking-widest text-slate-500">Name</label>
+            <input type="text" id="name" required class="w-full bg-dark-bg border border-dark-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-primary transition-colors" placeholder="Your Name">
+          </div>
+          
+          <div class="space-y-1">
+            <label for="email" class="text-xs font-mono uppercase tracking-widest text-slate-500">Email</label>
+            <input type="email" id="email" required class="w-full bg-dark-bg border border-dark-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-primary transition-colors" placeholder="name@example.com">
+          </div>
+          
+          <div class="space-y-1">
+            <label for="password" class="text-xs font-mono uppercase tracking-widest text-slate-500">Password</label>
+            <input type="password" id="password" required class="w-full bg-dark-bg border border-dark-border rounded px-4 py-3 text-sm text-white focus:outline-none focus:border-primary transition-colors" placeholder="••••••••">
+          </div>
+          
+          <button type="submit" class="w-full mt-4 bg-primary hover:bg-primary-hover text-slate-900 font-bold py-3 px-6 rounded uppercase tracking-widest text-xs transition-colors flex items-center justify-center gap-2">
+            Register
+            <i data-lucide="user-plus" class="h-4 w-4"></i>
+          </button>
+        </form>
+        
+        <div class="mt-6 text-center text-sm text-slate-400">
+          Already have an account? <a href="login.html" class="text-primary hover:text-primary-light font-medium transition-colors">Login here</a>
         </div>
-        
-        <div class="relative z-10">
-          <h2 class="text-3xl font-bold text-white mb-4">Complete Your Purchase</h2>
-          <p class="text-slate-300 text-lg mb-2">If your want this service, please create a ticket in discord channel.</p>
-          <p class="text-slate-400 text-sm mb-8">Now you click Ticket option you will automatically redirect in Discord Channel.</p>
-        </div>
-        
-        <a href="https://discord.gg/NrFzwAdPct" target="_blank" class="relative z-10 w-full md:w-auto px-12 py-4 bg-transparent text-primary-light border border-primary hover:bg-primary/20 font-bold rounded-lg uppercase tracking-widest text-sm transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(6,182,212,0.2)] hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:-translate-y-1">
-          <i data-lucide="ticket" class="h-5 w-5"></i> Ticket
-        </a>
       </div>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer class="border-t border-dark-border py-8 px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center gap-4 bg-dark-bg/50 backdrop-blur-md mt-auto">
     <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2 group">
       <svg viewBox="0 0 24 24" class="h-6 w-auto filter drop-shadow-[0_0_5px_rgba(6,182,212,0.6)] group-hover:scale-105 transition-transform" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -114,23 +125,53 @@
       </svg>
       <span class="text-slate-300 group-hover:text-white transition-colors">Civizsicloud</span>
     </a>
-    <div class="flex items-center gap-6 text-sm text-slate-500">
-      <a href="https://discord.gg/NrFzwAdPct" target="_blank" class="hover:text-primary-light transition-colors">Discord</a>
-    </div>
-    <p class="text-slate-400 font-bold text-sm mt-4">
-      &copy; <script>document.write(new Date().getFullYear())</script> Developed by SDGAMER. All rights reserved.
-    </p>
   </footer>
 
+  <script src="snow.js"></script>
+  <script src="auth.js"></script>
   <script>
     lucide.createIcons();
     document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
+      document.getElementById('mobileMenu').classList.toggle('hidden');
     });
+
+    document.getElementById('registerForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const pass = document.getElementById('password').value;
+      
+      let users = JSON.parse(localStorage.getItem('users') || '[]');
+      const errorMsg = document.getElementById('errorMsg');
+      const successMsg = document.getElementById('successMsg');
+      
+      if (users.find(u => u.email === email)) {
+        errorMsg.textContent = 'Account with this email already exists.';
+        errorMsg.classList.remove('hidden');
+        successMsg.classList.add('hidden');
+      } else {
+        users.push({ name, email, password: pass });
+        localStorage.setItem('users', JSON.stringify(users));
+        
+        errorMsg.classList.add('hidden');
+        successMsg.classList.remove('hidden');
+        
+        // Auto-login after registration
+        const session = {
+          email: email,
+          expiresAt: new Date().getTime() + (24 * 60 * 60 * 1000)
+        };
+        localStorage.setItem('currentUser', JSON.stringify(session));
+        
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 1500);
+      }
+    });
+
+    if(localStorage.getItem('currentUser')) {
+      window.location.href = 'index.html';
+    }
   </script>
-  <script src="snow.js"></script>
-  
-<script src="auth.js"></script>
 </body>
 </html>
