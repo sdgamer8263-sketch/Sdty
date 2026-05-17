@@ -25,6 +25,11 @@ a:active, button:active, [role="button"]:active, .tab-btn:active {
   transform: scale(0.97) !important;
 }
 
+.logo-text {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.05em;
+}
+
 main, footer {
   position: relative;
   z-index: 10;
