@@ -155,7 +155,12 @@
           body: JSON.stringify({ name, email, password: pass })
         });
         
-        const data = await response.json();
+        let data;
+        try {
+          data = await response.json();
+        } catch (jsonErr) {
+          throw new Error('Invalid response from server.');
+        }
         
         if (!response.ok) {
           errorMsg.textContent = data.error || 'Registration failed.';
@@ -177,7 +182,7 @@
           }, 1500);
         }
       } catch (err) {
-        errorMsg.textContent = 'Server error. Please try again later.';
+        errorMsg.textContent = 'Server error: ' + err.message;
         errorMsg.classList.remove('hidden');
         successMsg.classList.add('hidden');
       }
