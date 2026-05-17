@@ -78,6 +78,12 @@ async function startServer() {
     res.json({ user: { name: user.name, email: user.email } });
   });
 
+  // Global Error Handler for API
+  app.use('/api', (err, req, res, next) => {
+    console.error('API Error:', err);
+    res.status(500).json({ error: err.message || 'Internal Server Error' });
+  });
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const { createServer: createViteServer } = await import("vite");

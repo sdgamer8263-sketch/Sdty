@@ -157,8 +157,12 @@
         
         let data;
         try {
+          const textResponse = await response.clone().text();
+          console.log("Server response:", textResponse);
           data = await response.json();
         } catch (jsonErr) {
+          const errText = await response.text().catch(() => 'no text');
+          console.error("Failed to parse JSON. Server returned:", errText);
           throw new Error('Invalid response from server.');
         }
         
