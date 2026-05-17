@@ -8,18 +8,32 @@ async function startServer() {
 
   app.use(express.json());
 
-  const dbPath = path.join(process.cwd(), 'users.json');
+  const dbPath = path.join('/tmp', 'users.json');
+
+  // Memory fallback in case /tmp is not writable
+  let memoryDB = [];
 
   // Helper to read db
   const readDB = () => {
-    if (!fs.existsSync(dbPath)) {
-      fs.writeFileSync(dbPath, JSON.stringify([]));
+    try {
+      if (!fs.existsSync(dbPath)) {
+        fs.writeFileSync(dbPath, JSON.stringify([]));
+      }
+      return JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    } catch (e) {
+      console.warn('File system read/write failed, using memory fallback.', e.message);
+      return memoryDB;
     }
-    return JSON.parse(fs.readFileSync(dbPath, 'utf8'));
   };
 
   const writeDB = (data) => {
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    try {
+      fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+      memoryDB = data; // Keep in sync
+    } catch (e) {
+      console.warn('File system read/write failed, using memory fallback.', e.message);
+      memoryDB = data;
+    }
   };
 
   // API: Register
