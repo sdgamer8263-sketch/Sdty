@@ -32,15 +32,6 @@ async function startServer() {
 
   app.get('/api/logs', (req, res) => res.json(requestLogs));
 
-  // Legacy fallback for cached clients
-  app.post('/api/register', (req, res) => {
-    res.status(400).json({ error: "Update completed. Please HARD REFRESH your page (Ctrl+Shift+R or Cmd+Shift+R) to load the new Firebase version." });
-  });
-
-  app.post('/api/login', (req, res) => {
-    res.status(400).json({ error: "Update completed. Please HARD REFRESH your page (Ctrl+Shift+R or Cmd+Shift+R) to load the new Firebase version." });
-  });
-
   // Global Error Handler for API
   app.use('/api', (err: any, req: any, res: any, next: any) => {
     console.error('API Error:', err);
