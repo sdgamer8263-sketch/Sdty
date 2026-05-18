@@ -8,6 +8,27 @@ async function startServer() {
 
   app.use(express.json());
 
+  // Enable CORS
+  app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    
+    if (req.method === "OPTIONS") {
+      return res.status(200).end();
+    }
+    next();
+  });
+
+  const requestLogs: any[] = [];
+  app.use((req, res, next) => {
+    requestLogs.push({ method: req.method, url: req.url, body: req.body, time: new Date().toISOString() });
+    if (requestLogs.length > 50) requestLogs.shift();
+    next();
+  });
+
+  app.get('/api/logs', (req, res) => res.json(requestLogs));
+
   const dbPath = path.join('/tmp', 'users.json');
 
   // Memory fallback in case /tmp is not writable
@@ -82,6 +103,10 @@ async function startServer() {
   app.use('/api', (err, req, res, next) => {
     console.error('API Error:', err);
     res.status(500).json({ error: err.message || 'Internal Server Error' });
+  });
+
+  app.use('/api', (req, res) => {
+    res.status(404).json({ error: 'API route not found' });
   });
 
   // Vite middleware for development
