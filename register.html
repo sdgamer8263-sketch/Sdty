@@ -131,7 +131,11 @@
 
   <script src="snow.js"></script>
   <script src="auth.js"></script>
-  <script>
+  <script type="module">
+    import { auth, db } from './firebase.js';
+    import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+    import { doc, setDoc } from 'firebase/firestore';
+
     lucide.createIcons();
     document.getElementById('mobileMenuBtn').addEventListener('click', () => {
       document.getElementById('mobileMenu').classList.toggle('hidden');
@@ -147,44 +151,29 @@
       const successMsg = document.getElementById('successMsg');
       
       try {
-        const response = await fetch('/api/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ name, email, password: pass })
+        const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
+        const user = userCredential.user;
+        
+        await updateProfile(user, { displayName: name });
+        await setDoc(doc(db, 'users', user.uid), {
+          name,
+          email,
+          createdAt: new Date().toISOString()
         });
         
-        let data;
-        try {
-          const textResponse = await response.clone().text();
-          console.log("Server response:", textResponse);
-          data = await response.json();
-        } catch (jsonErr) {
-          const errText = await response.text().catch(() => 'no text');
-          console.error("Failed to parse JSON. Server returned:", errText);
-          throw new Error('Invalid response from server.');
-        }
+        errorMsg.classList.add('hidden');
+        successMsg.classList.remove('hidden');
         
-        if (!response.ok) {
-          errorMsg.textContent = data.error || 'Registration failed.';
-          errorMsg.classList.remove('hidden');
-          successMsg.classList.add('hidden');
-        } else {
-          errorMsg.classList.add('hidden');
-          successMsg.classList.remove('hidden');
-          
-          // Auto-login after registration
-          const session = {
-            email: email,
-            expiresAt: new Date().getTime() + (24 * 60 * 60 * 1000)
-          };
-          localStorage.setItem('currentUser', JSON.stringify(session));
-          
-          setTimeout(() => {
-            window.location.href = 'index.html';
-          }, 1500);
-        }
+        // Auto-login after registration
+        const session = {
+          email: email,
+          expiresAt: new Date().getTime() + (24 * 60 * 60 * 1000)
+        };
+        localStorage.setItem('currentUser', JSON.stringify(session));
+        
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 1500);
       } catch (err) {
         errorMsg.textContent = 'Server error: ' + err.message;
         errorMsg.classList.remove('hidden');

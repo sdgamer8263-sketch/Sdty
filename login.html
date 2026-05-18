@@ -125,7 +125,10 @@
 
   <script src="snow.js"></script>
   <script src="auth.js"></script>
-  <script>
+  <script type="module">
+    import { auth } from './firebase.js';
+    import { signInWithEmailAndPassword } from 'firebase/auth';
+
     lucide.createIcons();
     document.getElementById('mobileMenuBtn').addEventListener('click', () => {
       document.getElementById('mobileMenu').classList.toggle('hidden');
@@ -139,39 +142,17 @@
       const errorMsg = document.getElementById('errorMsg');
       
       try {
-        const response = await fetch('/api/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ email, password: pass })
-        });
+        const userCredential = await signInWithEmailAndPassword(auth, email, pass);
         
-        let data;
-        try {
-          const textResponse = await response.clone().text();
-          console.log("Server response:", textResponse);
-          data = await response.json();
-        } catch (jsonErr) {
-          const errText = await response.text().catch(() => 'no text');
-          console.error("Failed to parse JSON. Server returned:", errText);
-          throw new Error('Invalid response from server.');
-        }
-        
-        if (response.ok) {
-          // Valid login, create session (expires in 24 hrs)
-          const session = {
-            email: data.user.email,
-            expiresAt: new Date().getTime() + (24 * 60 * 60 * 1000)
-          };
-          localStorage.setItem('currentUser', JSON.stringify(session));
-          window.location.href = 'index.html';
-        } else {
-          errorMsg.textContent = data.error || 'Invalid email or password.';
-          errorMsg.classList.remove('hidden');
-        }
+        // Valid login, create session (expires in 24 hrs)
+        const session = {
+          email: userCredential.user.email,
+          expiresAt: new Date().getTime() + (24 * 60 * 60 * 1000)
+        };
+        localStorage.setItem('currentUser', JSON.stringify(session));
+        window.location.href = 'index.html';
       } catch (err) {
-        errorMsg.textContent = 'Server error: ' + err.message;
+        errorMsg.textContent = 'Login failed: ' + err.message;
         errorMsg.classList.remove('hidden');
       }
     });

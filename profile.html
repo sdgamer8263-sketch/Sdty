@@ -125,37 +125,49 @@
 
   <script src="snow.js"></script>
   <script src="auth.js"></script>
-  <script>
+  <script type="module">
+    import { auth, db } from './firebase.js';
+    import { onAuthStateChanged, signOut } from 'firebase/auth';
+    import { doc, getDoc } from 'firebase/firestore';
+
     lucide.createIcons();
     document.getElementById('mobileMenuBtn').addEventListener('click', () => {
       document.getElementById('mobileMenu').classList.toggle('hidden');
     });
 
     document.addEventListener('DOMContentLoaded', () => {
-        const currentUserStr = localStorage.getItem('currentUser');
-        if(!currentUserStr) {
-            window.location.href = 'login.html';
-            return;
-        }
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            document.getElementById('profileEmail').textContent = user.email;
+            document.getElementById('profileName').textContent = user.displayName || "Loading...";
 
-        const session = JSON.parse(currentUserStr);
-        document.getElementById('profileEmail').textContent = session.email;
-        document.getElementById('profileName').textContent = "Loading...";
-
-        fetch(`/api/user?email=${encodeURIComponent(session.email)}`)
-          .then(res => res.json())
-          .then(data => {
-            if (data.user) {
-              document.getElementById('profileName').textContent = data.user.name;
-            } else {
-              document.getElementById('profileName').textContent = "Cloud User";
+            try {
+              const docRef = doc(db, 'users', user.uid);
+              const docSnap = await getDoc(docRef);
+              if (docSnap.exists()) {
+                document.getElementById('profileName').textContent = docSnap.data().name || user.displayName || "Cloud User";
+              } else {
+                document.getElementById('profileName').textContent = user.displayName || "Cloud User";
+              }
+            } catch (error) {
+              console.error("Error fetching user data:", error);
+              document.getElementById('profileName').textContent = user.displayName || "Cloud User";
             }
-          })
-          .catch(() => {
-             document.getElementById('profileName').textContent = "Cloud User";
-          });
+          } else {
+            // Check local storage fallback just in case
+            const currentUserStr = localStorage.getItem('currentUser');
+            if(!currentUserStr) {
+                window.location.href = 'login.html';
+            }
+          }
+        });
 
-        document.getElementById('logoutBtn').addEventListener('click', () => {
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            try {
+              await signOut(auth);
+            } catch (err) {
+              console.error("Failed to log out from Firebase:", err);
+            }
             localStorage.removeItem('currentUser');
             window.location.href = 'login.html';
         });
