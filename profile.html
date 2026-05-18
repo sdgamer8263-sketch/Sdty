@@ -128,7 +128,7 @@
   <script type="module">
     import { auth, db } from './firebase.js';
     import { onAuthStateChanged, signOut } from 'firebase/auth';
-    import { doc, getDoc } from 'firebase/firestore';
+    import { ref, get, child } from 'firebase/database';
 
     lucide.createIcons();
     document.getElementById('mobileMenuBtn').addEventListener('click', () => {
@@ -142,10 +142,10 @@
             document.getElementById('profileName').textContent = user.displayName || "Loading...";
 
             try {
-              const docRef = doc(db, 'users', user.uid);
-              const docSnap = await getDoc(docRef);
-              if (docSnap.exists()) {
-                document.getElementById('profileName').textContent = docSnap.data().name || user.displayName || "Cloud User";
+              const dbRef = ref(db);
+              const snapshot = await get(child(dbRef, `users/${user.uid}`));
+              if (snapshot.exists()) {
+                document.getElementById('profileName').textContent = snapshot.val().name || user.displayName || "Cloud User";
               } else {
                 document.getElementById('profileName').textContent = user.displayName || "Cloud User";
               }

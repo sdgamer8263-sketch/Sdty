@@ -134,7 +134,7 @@
   <script type="module">
     import { auth, db } from './firebase.js';
     import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-    import { doc, setDoc } from 'firebase/firestore';
+    import { ref, set } from 'firebase/database';
 
     lucide.createIcons();
     document.getElementById('mobileMenuBtn').addEventListener('click', () => {
@@ -155,7 +155,7 @@
         const user = userCredential.user;
         
         await updateProfile(user, { displayName: name });
-        await setDoc(doc(db, 'users', user.uid), {
+        await set(ref(db, 'users/' + user.uid), {
           name,
           email,
           createdAt: new Date().toISOString()
