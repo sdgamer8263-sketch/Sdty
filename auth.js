@@ -1,12 +1,3 @@
-function initAuth() {
-  // Ensure UI updates when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateNavUI);
-  } else {
-    updateNavUI();
-  }
-}
-
 function updateNavUI() {
   // Use class selectors that match the navigation structure
   const desktopNav = document.querySelector('nav .hidden.md\\:block .flex.items-center.space-x-8');
@@ -32,4 +23,9 @@ function updateNavUI() {
   }
 }
 
-initAuth();
+// Ensure UI updates when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', updateNavUI);
+} else {
+  updateNavUI();
+}
