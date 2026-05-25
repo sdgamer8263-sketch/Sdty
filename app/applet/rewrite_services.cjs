@@ -1,223 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Civizsicloud | Services</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-          },
-          colors: {
-            'dark-bg': '#0f172a',
-            'dark-card': 'rgba(15, 23, 42, 0.5)',
-            'dark-border': '#1e293b',
-            primary: '#06b6d4',
-            'primary-hover': '#0891b2',
-            'primary-light': '#22d3ee',
-            'primary-dark': '#164e63',
-          }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <style>
-    .hidden-pane { display: none !important; }
-    .active-pane { display: block !important; }
-    .tab-btn { transition: all 0.2s; }
-    .tab-btn.active { background-color: #06b6d4; color: #0f172a; }
+const fs = require('fs');
 
-    /* Animated Realistic Minecraft Background */
-    
+let file = fs.readFileSync('services.html', 'utf8');
 
-    @keyframes panBackground {
-      0% { transform: translate3d(0, 0, 0) scale(1); }
-      100% { transform: translate3d(-3%, 3%, 0) scale(1.05); }
-    }
-  
-    .bg-animated-layer {
-      position: fixed;
-      top: -5%;
-      left: -5%;
-      width: 110%;
-      height: 110%;
-      z-index: 0;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      will-change: transform, opacity;
-      animation: panBackground 40s linear infinite alternate;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%);
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 100%);
-      pointer-events: none;
-    }
+const strStart = file.indexOf('const data = [');
+const strEnd = file.indexOf('</script>', strStart);
 
-    .bg-animated-layer.active {
-      opacity: 0.3;
-    }
-
-    
-    #bg-mc {
-      background-image: url('src/assets/images/realistic_minecraft_bg_1779042877649.png');
-    }
-
-    #bg-domains {
-      background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop');
-    }
-
-    #bg-vps {
-      background-image: url('https://images.unsplash.com/photo-1534088568595-a066f410cbda?q=80&w=2000&auto=format&fit=crop'); /* Clouds */
-    }
-
-    #bg-ptero {
-      background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2000&auto=format&fit=crop'); /* Servers */
-    }
-
-    #bg-discord {
-      background-image: url('https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?q=80&w=2000&auto=format&fit=crop'); /* Abstract */
-    }
-
-    #snow-canvas {
-      transition: opacity 1s ease-in-out;
-    }
-  </style>
-
-</head>
-<body class="text-slate-200 font-sans tracking-wide antialiased flex flex-col min-h-screen selection:bg-primary/30 selection:text-white bg-dark-bg">
-  
-    <div id="bg-mc" class="bg-animated-layer active"></div>
-  <div id="bg-domains" class="bg-animated-layer"></div>
-  <div id="bg-vps" class="bg-animated-layer"></div>
-  <div id="bg-ptero" class="bg-animated-layer"></div>
-  <div id="bg-discord" class="bg-animated-layer"></div>
-
-
-  <!-- Navbar -->
-  <nav class="sticky top-0 z-50 border-b border-dark-border bg-dark-bg/80 backdrop-blur-md">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <div class="flex-shrink-0">
-          <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2 group underline underline-offset-4 decoration-primary">
-            <svg viewBox="0 0 24 24" class="h-8 w-auto filter drop-shadow-[0_0_8px_rgba(6,182,212,0.8)] group-hover:scale-110 transition-transform duration-300" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="logoGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#0ea5e9" />
-                  <stop offset="100%" stop-color="#22d3ee" />
-                </linearGradient>
-              </defs>
-              <path d="M6.5 17.5H18c2.2 0 4-1.8 4-4s-1.8-4-4-4c-0.3-3.1-2.9-5.5-6-5.5c-2.6 0-4.8 1.6-5.6 3.9C3.1 8 0.5 10.4 0.5 13.5c0 2.2 1.8 4 4 4" stroke="url(#logoGlow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M14 10.5c-2-1-4-0.5-5 1.5c-1 2 0 4 2 4.5" stroke="url(#logoGlow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M15 14.5l-4.5-4.5" stroke="url(#logoGlow)" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <span class="logo-text text-xl md:text-2xl tracking-tighter font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 drop-shadow-[0_0_15px_rgba(6,182,212,0.6)] ml-1 relative">
-  Civizsicloud
-</span>
-          </a>
-        </div>
-        
-        <div class="hidden md:block">
-          <div class="ml-10 flex items-center space-x-8">
-            <a href="index.html" class="text-slate-300 hover:text-white hover:border-b-2 hover:border-dark-border border-b-2 border-transparent px-1 py-2 text-sm font-medium transition-colors">Home</a>
-            <a href="about.html" class="text-slate-300 hover:text-white hover:border-b-2 hover:border-dark-border border-b-2 border-transparent px-1 py-2 text-sm font-medium transition-colors">About Us</a>
-            <a href="services.html" class="text-white border-b-2 border-primary px-1 py-2 text-sm font-medium transition-colors">Services</a>
-            <a href="contact.html" class="text-slate-300 hover:text-white hover:border-b-2 hover:border-dark-border border-b-2 border-transparent px-1 py-2 text-sm font-medium transition-colors">Contact</a>
-          </div>
-        </div>
-        
-        
-        
-        <div class="md:hidden flex items-center">
-          <button id="mobileMenuBtn" class="text-slate-300 hover:text-white p-2">
-            <i data-lucide="menu" class="h-6 w-6"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden md:hidden border-t border-dark-border bg-dark-bg/95 backdrop-blur-md">
-      <div class="space-y-1 px-4 pb-4 pt-2">
-        <a href="index.html" class="text-slate-300 hover:bg-dark-border hover:text-white block rounded-md px-3 py-2 text-base font-medium">Home</a>
-        <a href="about.html" class="text-slate-300 hover:bg-dark-border hover:text-white block rounded-md px-3 py-2 text-base font-medium">About Us</a>
-        <a href="services.html" class="bg-primary/10 text-primary block rounded-md px-3 py-2 text-base font-medium">Services</a>
-        <a href="contact.html" class="text-slate-300 hover:bg-dark-border hover:text-white block rounded-md px-3 py-2 text-base font-medium">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <main class="flex-1 w-full px-4 py-8 sm:px-10 lg:px-10 max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8 border-b border-dark-border pb-6">
-      <div class="max-w-xl">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="px-2 py-0.5 bg-dark-border border border-dark-border text-[10px] text-primary-light font-mono uppercase tracking-tighter">Pricing & Services</span>
-        </div>
-        <h1 class="text-4xl md:text-5xl font-light tracking-tight mb-4">Select your power.</h1>
-        <p class="text-lg text-slate-400">
-          Scale your infrastructure with our instances and packages. <strong class="text-primary font-bold">Currently enjoying a 30% Discount!</strong>
-        </p>
-      </div>
-
-      <!-- Currency Selector -->
-      <div class="flex flex-col items-start gap-2">
-        <label for="currencySelector" class="text-xs font-mono text-slate-500 uppercase tracking-widest">Select Currency</label>
-        <div class="relative">
-          <select id="currencySelector" onchange="renderAll()" class="appearance-none bg-dark-card border border-dark-border text-white text-sm rounded px-4 py-2 pr-8 focus:outline-none focus:border-primary-light transition-colors backdrop-blur-md">
-            <option value="INR" selected>₹ INR (Indian Rupee)</option>
-            <option value="USD">$ USD (US Dollar)</option>
-            <option value="EUR">€ EUR (Euro)</option>
-            <option value="GBP">£ GBP (British Pound)</option>
-            <option value="BDT">৳ BDT (Bangladeshi Taka)</option>
-            <option value="PKR">Rs PKR (Pakistani Rupee)</option>
-          </select>
-          <i data-lucide="chevron-down" class="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tabs -->
-    <div class="flex flex-wrap items-center gap-2 mb-10 border border-dark-border p-2 rounded-lg bg-dark-card/50 backdrop-blur-md" id="tabs-container"></div>
-
-    <!-- Active Panes -->
-    <div id="panes-container"></div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="border-t border-dark-border py-8 px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center gap-4 bg-dark-bg/50 backdrop-blur-sm mt-8">
-    <a href="index.html" class="text-xl font-bold tracking-tight text-white flex items-center gap-2 group">
-      <svg viewBox="0 0 24 24" class="h-6 w-auto filter drop-shadow-[0_0_5px_rgba(6,182,212,0.6)] group-hover:scale-105 transition-transform" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6.5 17.5H18c2.2 0 4-1.8 4-4s-1.8-4-4-4c-0.3-3.1-2.9-5.5-6-5.5c-2.6 0-4.8 1.6-5.6 3.9C3.1 8 0.5 10.4 0.5 13.5c0 2.2 1.8 4 4 4" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M14 10.5c-2-1-4-0.5-5 1.5c-1 2 0 4 2 4.5" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M15 14.5l-4.5-4.5" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <span class="logo-text text-lg md:text-xl tracking-tight font-bold text-slate-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:via-blue-500 group-hover:to-purple-500 transition-all duration-500 ml-1">Civizsicloud</span>
-    </a>
-    <div class="flex items-center gap-6 text-sm text-slate-500">
-      <a href="https://discord.gg/NrFzwAdPct" target="_blank" class="hover:text-primary-light transition-colors">Discord</a>
-    </div>
-    <p class="text-slate-400 font-bold text-sm mt-4">
-      &copy; <script>document.write(new Date().getFullYear())</script> Developed by SDGAMER. All rights reserved.
-    </p>
-  </footer>
-
-  <!-- Scripts -->
-  <script>
-    lucide.createIcons();
-    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
-    });
-
-       const rates = { INR: 1, USD: 1/83, EUR: 1/90, GBP: 1/105, BDT: 1.3, PKR: 3.3 };
-    const symbols = { INR: '₹', USD: '$', EUR: '€', GBP: '£', BDT: '৳', PKR: 'Rs ' };
-
-    const data = [
+const newDataAndLogic = `const data = [
       {
         id: 'minecraft-invite', icon: 'server', title: 'Invite Plans',
         heading: 'INVITE PLANS', desc: 'Weekly only (can be increased by ticket). Data and Uptime Reliability Not Guaranteed. Renew by shifting to Paid plan or fulfilling requirements. Take Daily Backups! DO NOT PING STAFF! For custom IP, you must use playit.gg',
@@ -267,7 +55,7 @@
       },
       {
         id: 'vps-free-owo', icon: 'cpu', title: 'OwO Plan (Free)',
-        heading: 'VPS: OWO CASH PLANS (FREE)', desc: 'Every plan is non-IPv4. Pterodactyl Panel supported.\nExtra Core: 50k OwO/core | Extra RAM: 100k OwO/GB | Extra Disk: 90k OwO/GB',
+        heading: 'VPS: OWO CASH PLANS (FREE)', desc: 'Every plan is non-IPv4. Pterodactyl Panel supported.\\nExtra Core: 50k OwO/core | Extra RAM: 100k OwO/GB | Extra Disk: 90k OwO/GB',
         isFiat: false,
         items: [
           { name: 'Plan 1', price: '500k OwO', features: ['2 vCore', '7GB RAM', '30GB Disk (VPS)', 'Pterodactyl Panel Supported'] },
@@ -277,7 +65,7 @@
       },
       {
         id: 'vps-free-boost', icon: 'cpu', title: 'Boost VPS (Free)',
-        heading: 'PREMIUM BOOST PLANS', desc: 'Important: You must vouch within 4 hours or your VPS will be suspended! Ping <a href="https://discord.gg/U67cWR9dsQ" class="text-primary hover:underline" target="_blank">@azimmmm.yml</a> to claim/renew and boost the server.\n<a href="https://discord.gg/U67cWR9dsQ" class="text-primary hover:underline" target="_blank">🔗 https://discord.gg/U67cWR9dsQ</a>',
+        heading: 'PREMIUM BOOST PLANS', desc: 'Important: You must vouch within 4 hours or your VPS will be suspended! Ping <a href="https://discord.gg/U67cWR9dsQ" class="text-primary hover:underline">@azimmmm.yml</a> to claim/renew and boost the server.\\n<a href="https://discord.gg/U67cWR9dsQ" class="text-primary hover:underline">https://discord.gg/U67cWR9dsQ</a>',
         isFiat: false,
         items: [
           { name: 'Plan A', price: '1 Boost', features: ['2 vCore', '8GB RAM', '30GB Disk', 'Renew: 1 Boost'] },
@@ -294,7 +82,7 @@
         ] 
       },
       {
-        id: 'vps-paid-amd', icon: 'cpu', title: 'AMD Ryzen (Paid)',
+        id: 'vps-paid-amd', icon: 'cpu', title: 'AMD Threadripper (Paid)',
         heading: 'AMD Ryzen Threadripper Plan', desc: 'Coming soon. Unleash ultimate multithreaded performance.',
         isFiat: true,
         items: [
@@ -374,7 +162,7 @@
         const classes = isActive 
           ? 'active bg-primary text-slate-900 border-primary shadow-[0_0_10px_rgba(6,182,212,0.3)]' 
           : 'text-slate-400 hover:text-white border-transparent';
-        return '<button onclick="setActiveCategory(\'' + cat.id + '\')" class="tab-btn px-4 py-2 text-sm font-bold uppercase tracking-widest rounded border transition-colors flex items-center gap-2 ' + classes + '">'
+        return '<button onclick="setActiveCategory(\\'' + cat.id + '\\')" class="tab-btn px-4 py-2 text-sm font-bold uppercase tracking-widest rounded border transition-colors flex items-center gap-2 ' + classes + '">'
             + '<i data-lucide="' + cat.icon + '" class="h-4 w-4"></i> ' + cat.title 
           + '</button>';
       }).join('');
@@ -389,7 +177,7 @@
         
         html += '<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">';
         plans.forEach(plan => {
-          html += '<div onclick="setActiveSubTab(\'' + plan.id + '\')" class="cursor-pointer p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary flex flex-col items-center justify-center text-center transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(6,182,212,0.15)]">' +
+          html += '<div onclick="setActiveSubTab(\\'' + plan.id + '\\')" class="cursor-pointer p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary flex flex-col items-center justify-center text-center transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(6,182,212,0.15)]">' +
             '<div class="h-16 w-16 mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"><i data-lucide="' + plan.icon + '" class="h-8 w-8 text-primary group-hover:text-primary-light"></i></div>' +
             '<h3 class="text-xl font-bold text-white mb-2 uppercase tracking-wide">' + plan.title + '</h3>' +
             '<p class="text-xs text-slate-400 mt-2 line-clamp-3">' + plan.heading + '</p>' +
@@ -407,7 +195,7 @@
         
         html += '<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">';
         plans.forEach(plan => {
-          html += '<div onclick="setActiveSubTab(\'' + plan.id + '\')" class="cursor-pointer p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary flex flex-col items-center justify-center text-center transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(6,182,212,0.15)]">' +
+          html += '<div onclick="setActiveSubTab(\\'' + plan.id + '\\')" class="cursor-pointer p-6 rounded-lg bg-dark-card backdrop-blur-md border border-dark-border hover:border-primary flex flex-col items-center justify-center text-center transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(6,182,212,0.15)]">' +
             '<div class="h-16 w-16 mb-4 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"><i data-lucide="' + plan.icon + '" class="h-8 w-8 text-primary group-hover:text-primary-light"></i></div>' +
             '<h3 class="text-xl font-bold text-white mb-2 uppercase tracking-wide">' + plan.title + '</h3>' +
             '<p class="text-xs text-slate-400 mt-2 line-clamp-3">' + plan.heading + '</p>' +
@@ -460,7 +248,7 @@
 
           let featuresHtml = '';
           if (item.features) {
-            let fHtml = item.features.map(f => '<li class="flex items-center gap-3"><i data-lucide="check-circle" class="h-4 w-4 text-primary shrink-0"></i><span class="text-sm text-slate-300">' + f.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') + '</span></li>').join('');
+            let fHtml = item.features.map(f => '<li class="flex items-center gap-3"><i data-lucide="check-circle" class="h-4 w-4 text-primary shrink-0"></i><span class="text-sm text-slate-300">' + f.replace(/\\*\\*(.*?)\\*\\*/g,'<b>$1</b>') + '</span></li>').join('');
             featuresHtml = '<div class="h-[1px] w-full bg-dark-border mb-6 group-hover:bg-primary/30 transition-colors"></div><ul class="flex flex-col gap-3 mb-4">' + fHtml + '</ul>';
           }
 
@@ -481,7 +269,7 @@
           }
 
           let extraBtnHtml = '';
-          if (activeData.id.startsWith('minecraft') || activeData.id.startsWith('vps')) {
+          if (activeData.id.startsWith('minecraft')) {
             extraBtnHtml = '<a href="https://panel.civizsicloudhosting.indevs.in" target="_blank" class="w-full py-3 px-4 rounded text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-center gap-2 bg-dark-bg border border-dark-border hover:border-primary text-slate-300 hover:text-white">Panel <i data-lucide="server" class="h-3 w-3"></i></a>';
           }
 
@@ -513,46 +301,16 @@
         lucide.createIcons();
       }
 
-      
-      
       // Background logic
       const activeRenderId = activeSubTab || activeCategory;
       const snowCanvas = document.getElementById('snow-canvas');
-      
-      const layerMc = document.getElementById('bg-mc');
-      const layerDomains = document.getElementById('bg-domains');
-      const layerVps = document.getElementById('bg-vps');
-      const layerPtero = document.getElementById('bg-ptero');
-      const layerDiscord = document.getElementById('bg-discord');
-      
-      // Default reset
-      if(layerMc) layerMc.classList.remove('active');
-      if(layerDomains) layerDomains.classList.remove('active');
-      if(layerVps) layerVps.classList.remove('active');
-      if(layerPtero) layerPtero.classList.remove('active');
-      if(layerDiscord) layerDiscord.classList.remove('active');
-      
-      if(snowCanvas) {
-         snowCanvas.style.display = 'block'; 
-      }
-
-      if (activeCategory === 'minecraft') {
-        if(layerMc) layerMc.classList.add('active');
-        if(snowCanvas) snowCanvas.style.opacity = '0';
-      } else if (activeCategory === 'domains') {
-        if(layerDomains) layerDomains.classList.add('active');
-        if(snowCanvas) snowCanvas.style.opacity = '0';
-      } else if (activeCategory === 'vps') {
-        if(layerVps) layerVps.classList.add('active');
-        if(snowCanvas) snowCanvas.style.opacity = '0';
-      } else if (activeCategory === 'pterodactyl') {
-        if(layerPtero) layerPtero.classList.add('active');
-        if(snowCanvas) snowCanvas.style.opacity = '0';
-      } else if (activeCategory === 'discord') {
-        if(layerDiscord) layerDiscord.classList.add('active');
-        if(snowCanvas) snowCanvas.style.opacity = '0';
+      const mcBg = document.querySelector('.bg-animated-wrapper');
+      if (activeRenderId.startsWith('minecraft')) {
+        if (snowCanvas) snowCanvas.style.display = 'none';
+        if (mcBg) mcBg.style.display = 'block';
       } else {
-        if(snowCanvas) snowCanvas.style.opacity = '1';
+        if (snowCanvas) snowCanvas.style.display = 'block';
+        if (mcBg) mcBg.style.display = 'none';
       }
     }
 
@@ -560,6 +318,6 @@
       renderAll();
       setTimeout(renderAll, 100); 
     });
-</script>
-</body>
-</html>
+\n`;
+
+fs.writeFileSync('services.html', file.substring(0, strStart) + newDataAndLogic + file.substring(strEnd));
